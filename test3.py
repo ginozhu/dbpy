@@ -30,7 +30,7 @@ def crawlOneUser(userId, startFrom) :
 		None 
 	opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj)) 
 	urllib2.install_opener(opener) 
-	collectPage = urllib2.urlopen("http://movie.douban.com/people/" + userId + "/collect?start=" + str(startFrom) + "&sort=time&rating=all&filter=all&mode=list-view", timeout=10).read().encode('utf-8')
+	collectPage = urllib2.urlopen("http://movie.douban.com/people/" + userId + "/collect?start=" + str(startFrom) + "&sort=time&rating=all&filter=all&mode=list-view", timeout=20).read().encode('utf-8')
 	soup = BeautifulSoup(collectPage, 'html.parser')
 	
 	#f1 = open(str(startFrom)+'.txt','w')
@@ -69,7 +69,7 @@ def crawlOneUser(userId, startFrom) :
 			href = u''
 			movie_id = u''
 			try :
-			    subject = itemSoup.a['title']
+			    subject = itemSoup.em.get_text()
 			    href = itemSoup.a['href']
 			    movie_id = re.findall(r'\d+', href)[0]
 			except :
@@ -161,5 +161,4 @@ def crawlOneUser(userId, startFrom) :
 		crawlOneUser(userId, startFrom + 30)
 
 
-crawlOneUser('luoying6', 7770)
-crawlOneUser('1462573', 0)
+crawlOneUser('mizeer', 0)

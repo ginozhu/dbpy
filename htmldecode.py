@@ -13,7 +13,7 @@ source += '            <div class="info">'
 source += '                <ul>'
 source += '                    <li class="title">'
 source += '                        <a href="http://movie.douban.com/subject/26298756/" class="">'
-source += '                            <em>无心法师</em>'
+source += '                            <em>无心法师adfasdf/asdf</em>'
 source += '                            '
 source += '                        </a>'
 source += '                    </li>'
@@ -33,48 +33,48 @@ source += '            </div>'
 source += '        </div>'
 
 
-soup = BeautifulSoup(source, "html.parser")
+itemSoup = BeautifulSoup(source, "html.parser")
 
 subject = None
 href = None
 try :
-    subject = soup.a['title']
-    href = soup.a['href']
+    subject = itemSoup.em.get_text()
+    href = itemSoup.a['href']
 except :
     None
 
 
 imgSrc = None
 try :
-    imgSrc = soup.img['src']
+    imgSrc = itemSoup.img['src']
 except :
     None
 
 intro = None
 try :
-    intro = soup.find('li', { 'class' : 'intro' }).get_text()
+    intro = itemSoup.find('li', { 'class' : 'intro' }).get_text()
 except :
     None
 
 
 rating = None
 try :
-    rating = soup.find('span', { 'class' : re.compile('rating') })['class'][0]
+    rating = itemSoup.find('span', { 'class' : re.compile('rating') })['class'][0]
 except :
     None
 date = None
 try :
-    date = soup.find('span', { 'class' : re.compile('date') }).get_text()
+    date = itemSoup.find('span', { 'class' : re.compile('date') }).get_text()
 except :
     None
 tags = None
 try :
-    tags = soup.find('span', { 'class' : re.compile('tags') }).get_text()
+    tags = itemSoup.find('span', { 'class' : re.compile('tags') }).get_text()
 except :
     None
 comment = None
 try :
-    comment = soup.find('span', { 'class' : re.compile('comment') }).get_text()
+    comment = itemSoup.find('span', { 'class' : re.compile('comment') }).get_text()
 except :
     None
 
