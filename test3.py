@@ -9,7 +9,7 @@ import time
 
 
 def __unicode__(nonUniVal):
-	if(nonUniVal == None) :
+	if(nonUniVal == None):
 	   return u''
 #dou=douban() 
 #username='373382617@qq.com' 
@@ -18,7 +18,7 @@ def __unicode__(nonUniVal):
 #origURL='http://www.douban.com/login' 
 #dou.setinfo(username,password,domain,origURL) 
 #dou.signin() 
-def crawlOneUser(userId, startFrom) :
+def crawlOneUser(userId, startFrom):
 	print userId, startFrom;
 	reload(sys)
 	sys.setdefaultencoding('utf-8')
