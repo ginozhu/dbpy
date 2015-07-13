@@ -15,7 +15,10 @@ def loadLimitUsers(limitNumber) :
 	conn.select_db('pydb')
 	curs.execute('select user_id from users where last_update_date is null limit %s', limitNumber)
 	results = curs.fetchall()
+	i = 1;
 	for user in results :
+		print str(i) + "----------------------------------------------------------------------------"
+		i += 1
 		print user[0]
 		crawlOneUser(user[0], 0)
 		time.sleep( 2 )
