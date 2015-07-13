@@ -18,6 +18,7 @@ def loadLimitUsers(limitNumber) :
 	for user in results :
 		print user[0]
 		crawlOneUser(user[0], 0)
+		time.sleep( 2 )
 	curs.close()
 	conn.close()
 

@@ -162,4 +162,4 @@ def crawlOneUser(userId, startFrom) :
 		crawlOneUser(userId, startFrom + 30)
 
 
-crawlOneUser('130992487', 0)
+crawlOneUser('2925766', 150)
