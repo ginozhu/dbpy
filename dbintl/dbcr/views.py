@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.template.loader import get_template
 from django.http import HttpResponse
-from django.http import HttpResponse
+from django.template import Template, Context
 from django.conf.urls import include, url
 from django.contrib import admin
 
@@ -15,7 +15,8 @@ def hello(request):
 
 def current_datetime(request):
     now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
+    t = get_template('mytemplate.html')
+    html = t.render(Context({'current_date': now}))
     return HttpResponse(html)
 
 

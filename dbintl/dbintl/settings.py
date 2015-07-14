@@ -52,11 +52,11 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'dbintl.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['D:/yizhzhu/projects/py/workspace/dbpy/dbintl/dbcr/templates',
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
