@@ -29,5 +29,5 @@ urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^hello/$', 'dbcr.views.hello', name='hello'),
+    url(r'^dbcr/', include('dbcr.views')),
 ]
